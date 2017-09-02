@@ -13,10 +13,8 @@ let grant = new Grant (config);
 
 const app = express();
 app.use (logger ("dev"))
-app.use (session ({secret: "winteriscoming"}))
+app.use (session ({secret: process.env.SESSION_KEY}))
 
-const appKey = process.env.FB_APP_KEY;
-const appSecret = process.env.FB_APP_SECRET;
 const OAuth2 = OAuth.OAuth2;
 
 app.use (grant)
